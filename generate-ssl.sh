@@ -46,11 +46,13 @@ echo "CN = ${NAME}" >> certificate-authority-options.conf
 openssl genrsa -des3 -out tmp/${NAME}CA.key 2048
 openssl req -x509 -config certificate-authority-options.conf -new -nodes -key tmp/${NAME}CA.key -sha256 -days 1825 -out your-certs/${NAME}CA.pem
 
-# Delete trusted certs by their common name via https://unix.stackexchange.com/a/227014
-security find-certificate -c "${NAME}" -a -Z | sudo awk '/SHA-1/{system("security delete-certificate -Z "$NF)}'
+if ! command_exists security ; then
+    # Delete trusted certs by their common name via https://unix.stackexchange.com/a/227014
+    security find-certificate -c "${NAME}" -a -Z | sudo awk '/SHA-1/{system("security delete-certificate -Z "$NF)}'
 
-# Trust the Root Certificate cert
-security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain your-certs/${NAME}CA.pem
+    # Trust the Root Certificate cert
+    security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain your-certs/${NAME}CA.pem
+fi
 
 # Generate CA-signed Certificate
 openssl genrsa -out your-certs/${NAME}.key 2048
