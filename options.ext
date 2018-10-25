@@ -1,0 +1,15 @@
+authorityKeyIdentifier=keyid,issuer
+basicConstraints=CA:FALSE
+keyUsage = digitalSignature, nonRepudiation, keyEncipherment, dataEncipherment
+subjectAltName = @alt_names
+
+[alt_names]
+# Local hosts
+DNS.1 = localhost
+DNS.2 = 127.0.0.1
+DNS.3 = ::1
+
+# List your domain names here
+DNS.4 = root.russellheimlich.dev
+DNS.5 = zadieheimlich.dev
+DNS.6 = veraheimlich.dev
