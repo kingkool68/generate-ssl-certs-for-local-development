@@ -1,7 +1,8 @@
 #!/bin/bash
 
 # Make sure this script is run as root
-if [ "$EUID" -ne 0 ] ; then
+# Not needed on Git Bash for Windows
+if [ "$EUID" -ne 0 ] && [ -z "$MSYSTEM" ]; then
         echo "Please run as root. Try again by typing: sudo !!"
     exit
 fi
