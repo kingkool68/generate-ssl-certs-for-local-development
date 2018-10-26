@@ -43,7 +43,7 @@ All done! Check the your-certs directory for your certs.
 When you run this script it will
 
  - Create a fake certificate authority used to sign your own SSL certificate so your browser will trust it
- - Run all of the `openssl` commands to generate a root certificate (`.pem`) so your system will trust your self-signed certificate, a public certificate (`.crt`) that your browser sends to clients, and a private key for the certificate (`.key`) to encrypt and decrypt data sent between the server and client
+ - Run all of the `openssl` commands to generate a root certificate (`.pem`) so your system will trust your self-signed certificate, a public certificate (`.crt`) that your server sends to clients, and a private key for the certificate (`.key`) to encrypt and decrypt data sent between the server and client
  - Add the generated root certificate to MacOS' Keychain so the operating system can trust the certificates you sign yourself
  - Reads all options from two configuration files so you can customize things to meet your needs
 
