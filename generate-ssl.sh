@@ -26,16 +26,16 @@ fi
 ## Make sure the tmp/ directory exists
 if [ ! -d "tmp" ]; then
     mkdir tmp/
+else
+    rm tmp/*
 fi
 
 ## Make sure the your-certs/ directory exists
 if [ ! -d "your-certs" ]; then
     mkdir your-certs/
+else
+    rm your-certs/*
 fi
-
-# Cleanup files from previous runs
-rm tmp/*
-rm your-certs/*
 
 # Remove any lines that start with CN
 sed -i '/^CN/ d' certificate-authority-options.conf
