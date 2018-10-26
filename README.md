@@ -56,3 +56,6 @@ When you run this script it will
  - Open keychain and search for a certificate with the name you passed as an argument to the script. If you ran the script as `sudo ./generate-ssl.sh local.dev` then look for a certificate named `local.dev`
 
  - Firefox doesn't use the macOS keychain (it maintains its own certificate store), In order for your CA-signed certificates to be recognized by Firefox you'll need to go into the Firefox settings and manually add the `pem` file to Firefox.
+ 
+ ## Other Scripts
+  - If you need a more robust solution for Windows or Linux check out https://github.com/FiloSottile/mkcert
