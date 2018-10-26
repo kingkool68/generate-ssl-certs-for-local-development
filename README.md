@@ -39,6 +39,11 @@ Enter pass phrase for tmp/local.devCA.key:
 All done! Check the your-certs directory for your certs.
  ```
 
+### Running it on Git Bash for Windows
+```
+winpty bash generate-ssl.sh local.dev
+```
+
 ## What does this script do?
 When you run this script it will
 
