@@ -9,7 +9,7 @@ Generating the certs is a complicated hassle. So I made a bash script to do it a
 ## How do I use this?
  - Clone or download a zip of this repo
  - Navigate to the directory containing `generate-ssl.sh`
- - Edit the `options.conf` file to add all of the domain names you want included in the certficate
+ - Edit the `options.conf` file to add all of the domain names you want included in the certificate
  - Edit the `certificate-authority-options.conf` file if you want to tweak the settings used to generate the certificate authority certificate (optional)
  - Run `sudo ./generate-ssl.sh local.dev` where `local.dev` is the name of the cert that will be generated
  - The script will ask you for your system password which it needs to add the root certificate to Keychain
