@@ -64,4 +64,8 @@ openssl x509 -req -in "tmp/${name}.csr" -CA "your-certs/${name}CA.pem" -CAkey "t
 # Cleanup a stray file
 rm your-certs/*.srl
 
+# the username behind sudo, to give ownership back
+user=$( who am i | awk '{ print $1 }')
+chown -R "$user" tmp your-certs
+
 echo "All done! Check the your-certs directory for your certs."
