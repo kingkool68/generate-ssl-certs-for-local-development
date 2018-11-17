@@ -38,7 +38,7 @@ rm tmp/*
 rm your-certs/*
 
 # Remove any lines that start with CN
-sed -i '/^CN/ d' certificate-authority-options.conf
+sed -i '' '/^CN/ d' certificate-authority-options.conf
 # Modify the conf file to set CN = ${NAME}
 echo "CN = ${NAME}" >> certificate-authority-options.conf
 
