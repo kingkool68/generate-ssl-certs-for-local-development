@@ -44,7 +44,7 @@ echo "CN = ${name}" >> certificate-authority-options.conf
 
 # Generate Certificate Authority
 openssl genrsa -des3 -out "tmp/${name}CA.key" 2048
-openssl req -x509 -config certificate-authority-options.conf -new -nodes -key "tmp/${name}CA.key" -sha256 -days 1825 -out "your-certs/${name}CA.pem"
+openssl req -x509 -config certificate-authority-options.conf -new -nodes -key "tmp/${name}CA.key" -sha256 -days 825 -out "your-certs/${name}CA.pem"
 
 if command_exists security ; then
     # Delete trusted certs by their common name via https://unix.stackexchange.com/a/227014
@@ -59,7 +59,7 @@ openssl genrsa -out "your-certs/${name}.key" 2048
 openssl req -new -config certificate-authority-options.conf -key "your-certs/${name}.key" -out "tmp/${name}.csr"
 
 # Generate SSL Certificate
-openssl x509 -req -in "tmp/${name}.csr" -CA "your-certs/${name}CA.pem" -CAkey "tmp/${name}CA.key" -CAcreateserial -out "your-certs/${name}.crt" -days 1825 -sha256 -extfile options.conf
+openssl x509 -req -in "tmp/${name}.csr" -CA "your-certs/${name}CA.pem" -CAkey "tmp/${name}CA.key" -CAcreateserial -out "your-certs/${name}.crt" -days 825 -sha256 -extfile options.conf
 
 # Cleanup a stray file
 rm your-certs/*.srl
